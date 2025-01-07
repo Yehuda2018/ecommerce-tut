@@ -1,0 +1,25 @@
+1. na 30 min video byl ustanovlen express-async-handler kotoryj
+delaet sledujushee: Saves you writing your own try/catch for async/await and passes error on to next.
+
+2. Debug: v terminale add "Javascript debug terminal". ostanovit' glavnyj termilal. v javascript debug
+terminal zapustit' project: node index.js
+
+3. ustanvit npm package bcrypt dlja password encription: npm i bcrypt
+
+4. install node-readmy extension
+
+5. ustanavit npm package jsonwebtoken
+
+6. ustanovit npm package cookie-parser
+
+7. ustanovit npm package morgan, on vyvodit v kansoli informaciju o http requeste
+
+8. ustanovit npm package slugify
+
+9. ustanovil nmp packed nodemailer (npm i nodemailer)
+
+10. in order to create 'Gmail app password' you need to enable 2f autentication? then point your
+browser to https://myaccount.google.com/apppasswords. and follow instruction
+
+11. ustanavit npm i multer sharp cloudinary 
+vse jeto nushno dlja upload kartinki
