@@ -5,13 +5,15 @@ const { uploadPhoto, productImgResize } = require("../middlewares/uploadImages")
 const router = express.Router();
 
 router.post('/', createProduct);
+//router.put('/upload/:id', authMiddleware,isAdmin, uploadPhoto.array("images",10),(req, res)=>{res.json({"status":"ok"})});
+//router.put('/upload/:id', authMiddleware,isAdmin, uploadPhoto.array("images",10),productImgResize,uploadImages);
 router.put('/upload/:id',
      authMiddleware,
      isAdmin,
      uploadPhoto.array("images",10),
      productImgResize,
      uploadImages
-    );
+);
 router.get('/:id', getaProduct);
 router.put('/wishlist', authMiddleware,addToWishlist);
 router.put('/rating', authMiddleware, rating);

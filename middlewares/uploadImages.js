@@ -29,18 +29,21 @@ const uploadPhoto = multer({
     limits:{fieldSize:2000000}
 })
 
-const productImgResize = async(req, res, next) =>{
 
+
+const productImgResize = async(req, res, next) =>{
+    sharp.cache(false)
     if (!req.files) return next();
    
     await Promise.all(
         req.files.map(async(file)=>{
+            console.log(file.path)
             await sharp(file.path)
             .resize(300,300)
             .toFormat("jpeg")
             .jpeg({quality:90})
             .toFile(`public/images/products/${file.filename}`)
-           // fs.unlinkSync(`public/images/products/${file.filename}`);
+            fs.unlinkSync(`public/images/products/${file.filename}`);
         })
     )
     next();
@@ -48,6 +51,7 @@ const productImgResize = async(req, res, next) =>{
 
 
 const blogImgResize = async(req, res, next) =>{
+    sharp.cache(false)
     if (!req.files) return next();
     await Promise.all(
         req.files.map(async(file)=>{
@@ -56,6 +60,7 @@ const blogImgResize = async(req, res, next) =>{
             .toFormat("jpeg")
             .jpeg({quality:90})
             .toFile(`public/images/blogs/${file.filename}`)
+             fs.unlinkSync(`public/images/blogs/${file.filename}`);
         })
     )
     next();
